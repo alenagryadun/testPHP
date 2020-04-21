@@ -24,5 +24,19 @@ class Palindrome
         if($left_path != strrev($right_path)) return 'false';
         return 'true';
     }
+
+    public static function isPalindrome_2($word) {
+
+        if (strlen($word) < 2 ) return 'Error. It is not a word';
+        $word = strtolower($word);
+        $word_array = str_split($word);
+        $reverse_word_array = array_reverse($word_array);
+
+        for ($i = 0; $i < count($word_array); $i++) {
+            if ($word_array[$i] != $reverse_word_array[$i]) return 'false';
+        }
+
+        return 'true';
+    }
 }
 echo Palindrome::isPalindrome('Deleveled'); 
